@@ -1,11 +1,11 @@
 require 'nummy_word'
 
 describe NummyWord do
-  it 'can return the english for 0' do
-    expect(NummyWord.new(0).word).to eq('zero')
-  end
+  zero_twenty_numerals = [ 'zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen', 'twenty' ]
 
-  it 'can return the english for 1' do
-    expect(NummyWord.new(1).word).to eq('one')
+  (0..20).each do |i|
+    it "can return the english for #{i}" do
+      expect(NummyWord.new(i).word).to eq(zero_twenty_numerals[i])
+    end
   end
 end
