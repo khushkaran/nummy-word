@@ -30,4 +30,10 @@ describe NummyWord do
       expect(NummyWord.new(num).to_words).to eq(numeral)
     end
   end
+
+  { 928 => 'nine hundred twenty eight', 837 => 'eight hundred thirty seven', 746 => 'seven hundred forty six', 655 => 'six hundred fifty five', 564 => 'five hundred sixty four', 473 => 'four hundred seventy three', 382 => 'three hundred eighty two', 291 => 'two hundred ninety one', 101 => 'one hundred one', 100 => 'one hundred' }.each do |num, numeral|
+    it "returns #{numeral} when #{num} is passed in" do
+      expect(NummyWord.new(num).to_words).to eq(numeral)
+    end
+  end
 end
