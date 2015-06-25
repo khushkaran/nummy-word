@@ -37,17 +37,7 @@ class NummyWord
   def to_words(int=@int)
     NUMERALS.each do |num, numeral|
       return zero(int, @int) if int == 0
-
-      if int_dividend?(int, num)
-        if int_length(int) == 1
-          return "#{numeral}"
-        elsif int < 100
-          return numeral if int%num == 0
-          return "#{numeral} " + to_words(int%num)
-        else
-          return [to_words(int/num), numeral, to_words(int%num)].compact.join(' ')
-        end
-      end
+      return non_zero(int, num, numeral) if int_dividend?(int, num)
     end
   end
 
@@ -64,5 +54,16 @@ class NummyWord
   def zero(int, ori)
     return if ori != int
     return 'zero'
+  end
+
+  def double_digit(numeral, int, num)
+    return numeral if int%num == 0
+    return [numeral, to_words(int%num)].join(' ')
+  end
+
+  def non_zero(int, num, numeral)
+    return numeral if int_length(int) == 1
+    return double_digit(numeral, int, num) if int < 100
+    return [to_words(int/num), numeral, to_words(int%num)].compact.join(' ')
   end
 end
