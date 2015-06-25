@@ -8,4 +8,8 @@ describe NummyWord do
   it 'returns one when 1 is passed in' do
     expect(NummyWord.new(1).to_words).to eq('one')
   end
+
+  it 'returns two when 2 is passed in' do
+    expect(NummyWord.new(2).to_words).to eq('two')
+  end
 end

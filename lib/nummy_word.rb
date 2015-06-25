@@ -1,5 +1,6 @@
 class NummyWord
   NUMERALS = {
+    2 => 'two',
     1 => 'one'
   }
   def initialize(int)
@@ -9,7 +10,7 @@ class NummyWord
   def to_words
     NUMERALS.each do |num, numeral|
       return 'zero' if @int == 0
-      return "#{numeral}"
+      return "#{numeral}" if @int/num > 0
     end
   end
 end
