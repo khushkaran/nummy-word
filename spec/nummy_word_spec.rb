@@ -24,4 +24,10 @@ describe NummyWord do
       expect(NummyWord.new(num).to_words).to eq(numeral)
     end
   end
+
+  { 93 => 'ninety three', 90 => 'ninety', 84 => 'eighty four', 80 => 'eighty', 75 => 'seventy five', 70 => 'seventy', 66 => 'sixty six', 60 => 'sixty', 57 => 'fifty seven', 50 => 'fifty', 48 => 'forty eight', 40 => 'forty', 39 => 'thirty nine', 30 => 'thirty' }.each do |num, numeral|
+    it "returns #{numeral} when #{num} is passed in" do
+      expect(NummyWord.new(num).to_words).to eq(numeral)
+    end
+  end
 end

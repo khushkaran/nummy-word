@@ -1,5 +1,12 @@
 class NummyWord
   NUMERALS = {
+    90 => 'ninety',
+    80 => 'eighty',
+    70 => 'seventy',
+    60 => 'sixty',
+    50 => 'fifty',
+    40 => 'forty',
+    30 => 'thirty',
     20 => 'twenty',
     19 => 'nineteen',
     18 => 'eighteen',
@@ -25,10 +32,27 @@ class NummyWord
     @int = int.to_i
   end
 
-  def to_words
+  def to_words(int=@int)
     NUMERALS.each do |num, numeral|
-      return 'zero' if @int == 0
-      return "#{numeral}" if @int/num > 0
+      return 'zero' if int == 0
+      if int_dividend?(int, num)
+        if int_length(int) == 1
+          return "#{numeral}"
+        else
+          return numeral if int%num == 0
+          return "#{numeral} " + to_words(int%num)
+        end
+      end
     end
+  end
+
+  private
+
+  def int_dividend?(int, divisor)
+    int/divisor > 0
+  end
+
+  def int_length(int)
+    int.to_s.length
   end
 end
