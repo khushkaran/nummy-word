@@ -18,4 +18,10 @@ describe NummyWord do
       expect(NummyWord.new(num).to_words).to eq(numeral)
     end
   end
+
+  { 20 => 'twenty', 19 => 'nineteen', 18 => 'eighteen', 17 => 'seventeen', 16 => 'sixteen', 15 => 'fifteen', 14 => 'fourteen', 13 => 'thirteen', 12 => 'twelve', 11 => 'eleven', 10 => 'ten' }.each do |num, numeral|
+    it "returns #{numeral} when #{num} is passed in" do
+      expect(NummyWord.new(num).to_words).to eq(numeral)
+    end
+  end
 end
