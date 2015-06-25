@@ -36,4 +36,10 @@ describe NummyWord do
       expect(NummyWord.new(num).to_words).to eq(numeral)
     end
   end
+
+  { 9012 => 'nine thousand twelve', 8901 => 'eight thousand nine hundred one', 7890 => 'seven thousand eight hundred ninety', 6789 => 'six thousand seven hundred eighty nine', 5678 => 'five thousand six hundred seventy eight', 4567 => 'four thousand five hundred sixty seven', 3456 => 'three thousand four hundred fifty six', 2345 => 'two thousand three hundred forty five', 1234 => 'one thousand two hundred thirty four', 1000 => 'one thousand' }.each do |num, numeral|
+    it "returns #{numeral} when #{num} is passed in" do
+      expect(NummyWord.new(num).to_words).to eq(numeral)
+    end
+  end
 end

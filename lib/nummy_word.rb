@@ -1,5 +1,6 @@
 class NummyWord
   NUMERALS = {
+    1000 => 'thousand',
     100 => 'hundred',
     90 => 'ninety',
     80 => 'eighty',
